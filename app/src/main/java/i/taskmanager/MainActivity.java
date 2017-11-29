@@ -32,11 +32,16 @@ public class MainActivity extends AppCompatActivity {
     public void LogIn(View v){
 
         if(username.getText().toString().equals("Cedric")) {
+            //Easter EGG! Nous aimons beaucoup Harry Potter et notre TA Cedric...!
             Intent t = new Intent(getApplicationContext(), EasterEgg.class);
             startActivity(t);
             finish();
         }else {
-            Log.d("Carpou",username.getText().toString());
+            //Insérer le code pour la connexion ici.
+            // 1. obtenir, de la base de donnée, la personne!
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference lili = database.getReference("users").child(didi);
+
             Intent t = new Intent(getApplicationContext(), ListeTacheActivity.class);
             startActivity(t);
             finish();
