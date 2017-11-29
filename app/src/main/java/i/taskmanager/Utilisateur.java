@@ -15,6 +15,10 @@ public class Utilisateur implements Serializable{
     private String user;
     private int pass;
 
+    public Utilisateur(){
+
+    }
+
     public Utilisateur(String prenom, String nom, int nbreTachesAccomplies, Double nbreDePoints, Role role, String user, int pass){
         this.prenom = prenom;
         this.nom = nom;
@@ -48,4 +52,32 @@ public class Utilisateur implements Serializable{
     public String getUser() {return user;}
 
     public int getPass() {return pass;}
+
+    public void setNbreDePoints(Double nbreDePoints) {
+        this.nbreDePoints = nbreDePoints;
+    }
+
+    public void setNbreTachesAccomplies(int nbreTachesAccomplies) {
+        this.nbreTachesAccomplies = nbreTachesAccomplies;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setPass(int pass) {
+        this.pass = pass;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
 }
