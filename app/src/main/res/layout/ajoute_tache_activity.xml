@@ -13,7 +13,8 @@
             android:layout_width="40dp"
             android:layout_height="50dp"
             android:layout_margin="5dp"
-            android:src="@drawable/crochet"/>
+            android:src="@drawable/crochet"
+            android:onClick="addTache"/>
     </LinearLayout>
 
     <ScrollView

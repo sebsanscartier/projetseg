@@ -21,39 +21,38 @@ import java.util.ArrayList;
 public class AjouteTacheActivity extends AppCompatActivity {
 
 
-    private EditText description,nombrePoints;
+    private EditText description, nombrePoints, dateLimite, note;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ajoute_tache_activity);
+
+
+        description = (EditText) findViewById(R.id.ajoute_tache_titre);
+        nombrePoints = (EditText) findViewById(R.id.ajoute_tache_nbPoints);
+        dateLimite = (EditText) findViewById(R.id.ajoute_tache_date);
+        note = (EditText) findViewById(R.id.ajoute_tache_note);
+
     }
 
 
-    public void addUser(View v){
-            String prenomString = prenom.getText().toString().trim();
-            String nomString = nom.getText().toString().trim();
-            String userString = user.getText().toString().trim();
-            int passInt = Integer.parseInt(pass.getText().toString().trim());
-
-            Role roleChoisi = Session.parent;
-
-            if(role.getSelectedItemPosition() == 0){
-                roleChoisi = Session.parent;
-            }else if(role.getSelectedItemPosition() == 1){
-                roleChoisi = Session.garcon;
-            }else if(role.getSelectedItemPosition() == 2){
-                roleChoisi = Session.fille;
-            }
-
-            Utilisateur user = new Utilisateur(prenomString, nomString, 0, 0.0, roleChoisi, userString, passInt);
+    public void addTache(View v) {
+        String didi = description.getText().toString().trim();
+        double didi2 = Double.parseDouble(nombrePoints.getText().toString().trim());
+        String didi3 = dateLimite.getText().toString().trim();
+        String didi4 = note.getText().toString().trim();
 
 
+        Tache task = new Tache(didi2, didi, false, didi4, didi3, "");
 
-            FirebaseDatabase database = FirebaseDatabase.getInstance("taches");
-            DatabaseReference ref = database.getReference().child(userString);
-            ref.setValue(user);
-            Toast.makeText(getApplicationContext(), userString+" ajouté", Toast.LENGTH_LONG).show();
-        }
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference lili = database.getReference().child(didi);
+        lili.setValue(task);
+        Toast.makeText(getApplicationContext(), didi + " ajouté", Toast.LENGTH_LONG).show();
+
+
+    }
 
 }
