@@ -15,11 +15,12 @@ public class Tache implements Serializable{
     private String note;
     private String dateDebut;
     private String dateLimite;
+    private String destinataire;
 
     public Tache(){
 
     }
-    public Tache(Double compensation, String description, Boolean isCompleted, String note, String dateDebut, String dateLimite){
+    public Tache(Double compensation, String description, Boolean isCompleted, String note, String dateDebut, String dateLimite, String destinaire){
 
         this.compensation = compensation;
         this.description = description;
@@ -27,10 +28,11 @@ public class Tache implements Serializable{
         this.note = note;
         this.dateDebut = dateDebut;
         this.dateLimite = dateLimite;
+        this.destinataire = destinaire;
 
     }
 
-    public Tache(Double compensation, String description, Boolean isCompleted, String dateDebut, String dateLimite){
+    public Tache(Double compensation, String description, Boolean isCompleted, String dateDebut, String dateLimite, String destinataire){
 
         this.compensation = compensation;
         this.description = description;
@@ -38,6 +40,7 @@ public class Tache implements Serializable{
         this.note = "";
         this.dateDebut = dateDebut;
         this.dateLimite = dateLimite;
+        this.destinataire = destinataire;
 
     }
 
@@ -89,5 +92,13 @@ public class Tache implements Serializable{
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public String getDestinataire() {
+        return destinataire;
+    }
+
+    public void setDestinataire(String destinataire) {
+        this.destinataire = destinataire;
     }
 }

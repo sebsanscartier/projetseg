@@ -28,8 +28,8 @@ public class ListeTacheActivity extends AppCompatActivity {
         //On rempli le tableau avec les différentes tâches.
         ArrayList<Tache> taches = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            Tache c = new Tache((i*10.0 + 4),"Laver le chien",false,"2017-11-21","2017-12-01");
-            Tache w = new Tache((i*10.0 + 4),"Laver le chien",false,"Le faire avec une vieille brosse s'il-vous plait! Ne pas prendre les nouvelles brosses de maman, elle va être extrêmement fâchée","2017-11-21","2017-12-01");
+            Tache c = new Tache((i*10.0 + 4),"Laver le chien",false,"2017-11-21","2017-12-01","mimi");
+            Tache w = new Tache((i*10.0 + 4),"Laver le chien",false,"Le faire avec une vieille brosse s'il-vous plait! Ne pas prendre les nouvelles brosses de maman, elle va être extrêmement fâchée","2017-11-21","2017-12-01","mama");
             taches.add(c);
             taches.add(w);
         }
@@ -51,6 +51,8 @@ public class ListeTacheActivity extends AppCompatActivity {
 
 
     }
+
+
 
     //Méthode permettant de lancer l'affichage du profil de l'utilisateur, lorsque celui-ci clique sur son avatar.
     public void afficheProfileActivity(View v){
