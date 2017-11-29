@@ -16,7 +16,9 @@ public class Tache implements Serializable{
     private String dateDebut;
     private String dateLimite;
 
+    public Tache(){
 
+    }
     public Tache(Double compensation, String description, Boolean isCompleted, String note, String dateDebut, String dateLimite){
 
         this.compensation = compensation;
@@ -61,5 +63,31 @@ public class Tache implements Serializable{
 
     public String getNote() {
         return note;
+    }
+
+
+
+    public void setCompensation(Double compensation) {
+        this.compensation = compensation;
+    }
+
+    public void setCompleted(Boolean completed) {
+        isCompleted = completed;
+    }
+
+    public void setDateDebut(String dateDebut) {
+        this.dateDebut = dateDebut;
+    }
+
+    public void setDateLimite(String dateLimite) {
+        this.dateLimite = dateLimite;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 }

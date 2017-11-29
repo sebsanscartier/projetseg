@@ -48,7 +48,7 @@ public class AjouteTacheActivity extends AppCompatActivity {
 
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference lili = database.getReference().child(didi);
+        DatabaseReference lili = database.getReference("tache").child(didi);
         lili.setValue(task);
         Toast.makeText(getApplicationContext(), didi + " ajouté", Toast.LENGTH_LONG).show();
 

@@ -99,7 +99,7 @@ public class AjoutUserActivity extends AppCompatActivity {
 
 
             FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference ref = database.getReference().child(userString);
+            DatabaseReference ref = database.getReference("users").child(userString);
             ref.setValue(user);
             Toast.makeText(getApplicationContext(), userString+" ajouté", Toast.LENGTH_LONG).show();
         } else {

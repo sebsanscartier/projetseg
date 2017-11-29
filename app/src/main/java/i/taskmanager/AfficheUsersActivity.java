@@ -7,7 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -17,6 +24,8 @@ import java.util.ArrayList;
 
 public class AfficheUsersActivity extends AppCompatActivity {
 
+    private ArrayList<Utilisateur> utilisateurs = new ArrayList<>();
+    RecyclerView v;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,32 +33,10 @@ public class AfficheUsersActivity extends AppCompatActivity {
         setContentView(R.layout.affiche_users_activity);
 
         //On obtient le RecyclerView que nous avons créé dans le fichier XML de layout.
-        RecyclerView v = (RecyclerView) findViewById(R.id.affiche_users_recyclerView);
-
-        //On rempli le tableau avec les différentes tâches.
-        ArrayList<Utilisateur> utilisateurs = new ArrayList<>();
-        Role parent = new Role(true,"Parent (Admin)");
-        Role fille = new Role(true,"Fille");
-        Role garcon = new Role(true,"Garçon");
+        v = (RecyclerView) findViewById(R.id.affiche_users_recyclerView);
 
 
-        Utilisateur u1 = new Utilisateur("Steve","Macacou",20,35.0,parent, "user", 123);
-        Utilisateur u2 = new Utilisateur("Niève","Landry",3,20.0,fille, "user", 123);
-        Utilisateur u3 = new Utilisateur("Carry","Rouge",60,567.0,garcon, "user", 123);
-        Utilisateur u4 = new Utilisateur("Karine","Padoudou",78,1034.0,parent, "user", 123);
 
-        utilisateurs.add(u1);
-        utilisateurs.add(u2);
-        utilisateurs.add(u3);
-        utilisateurs.add(u4);
-        utilisateurs.add(u1);
-        utilisateurs.add(u2);
-        utilisateurs.add(u3);
-        utilisateurs.add(u4);
-        utilisateurs.add(u1);
-        utilisateurs.add(u2);
-        utilisateurs.add(u3);
-        utilisateurs.add(u4);
 
 
         //On fait en sorte d'ajouter une orientation et un layout au recycler view pour qu'il puisse se construire correctement
@@ -62,15 +49,43 @@ public class AfficheUsersActivity extends AppCompatActivity {
         v.addItemDecoration(mDividerItemDecoration);
 
         //On fait en sorte de mettre l'adapter au recycler view, afin de pouvoir afficher toutes les différentes tâches.
-        AfficheUsersAdapter adapter = new AfficheUsersAdapter(utilisateurs,getApplicationContext());
-        v.setAdapter(adapter);
+
 
 
 
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("users");
+        utilisateurs.clear();
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapShot : dataSnapshot.getChildren()){
+                    Utilisateur tmp = snapShot.getValue(Utilisateur.class);
+                    Log.d("SOURCE",tmp.getNom());
+                    utilisateurs.add(tmp);
+                }
+
+
+
+                AfficheUsersAdapter adapter = new AfficheUsersAdapter(utilisateurs,getApplicationContext());
+                v.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+    }
 
 
 }

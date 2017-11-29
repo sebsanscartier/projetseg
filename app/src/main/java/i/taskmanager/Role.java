@@ -11,8 +11,15 @@ import java.io.Serializable;
 
 public class Role implements Serializable{
 
+
+
     private Boolean isAdministrative;
     private String description;
+
+
+    public Role(){
+
+    }
 
     public Role(Boolean isAdministrative, String description){
         this.isAdministrative = isAdministrative;
@@ -27,5 +34,11 @@ public class Role implements Serializable{
         return isAdministrative;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
+    public void setAdministrative(Boolean administrative) {
+        isAdministrative = administrative;
+    }
 }
