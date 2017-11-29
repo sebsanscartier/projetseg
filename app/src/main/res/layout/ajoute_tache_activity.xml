@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f2f2f2">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorGreen"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/crochet"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:verticalScrollbarPosition="right"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:fillViewport="true"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Destinataire"
+        android:textSize="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"/>
+    <Spinner
+        android:id="@+id/ajoute_tache_destinataire"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="#FFFFFF"></Spinner>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tâche"
+        android:textSize="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"/>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:columnCount="2"
+        android:rowCount="6"
+        android:background="#FFFFFF"
+        >
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:text="Titre : "
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:paddingLeft="5dp"
+            android:textColor="@color/colorRedPink"/>
+
+        <EditText
+            android:id="@+id/ajoute_tache_titre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:textSize="15dp"
+            android:hint="Entrez le titre"
+            android:background="@android:color/transparent"/>
+
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="1"
+            android:text="Point : "
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:paddingLeft="5dp"
+            android:textColor="@color/colorRedPink"/>
+
+        <EditText
+            android:id="@+id/ajoute_tache_nbPoints"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="1"
+            android:textSize="15dp"
+            android:hint="Entrez le nombre de points"
+            android:background="@android:color/transparent"/>
+
+
+
+    </GridLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Date Limite"
+                android:textSize="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"/>
+
+            <EditText
+                android:id="@+id/ajoute_tache_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_columnSpan="2"
+                android:textAlignment="center"
+                android:layout_row="3"
+                android:textSize="20dp"
+                android:hint="YYYY-MM-DD"
+                android:background="#FFFFFF"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Note"
+                android:textSize="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"/>
+
+            <EditText
+                android:id="@+id/ajoute_tache_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_columnSpan="2"
+                android:textAlignment="center"
+                android:minHeight="60dp"
+                android:layout_row="3"
+                android:textSize="20dp"
+                android:hint="Entrez une note (Optionnelle)"
+                android:background="#FFFFFF"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="20dp"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>
