@@ -5,7 +5,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -16,6 +21,8 @@ import java.util.ArrayList;
 public class AfficheTacheActivity extends AppCompatActivity {
 
     private Tache tache;
+    private Utilisateur user;
+    private ImageView delete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +38,12 @@ public class AfficheTacheActivity extends AppCompatActivity {
         Intent intent = this.getIntent();
         Bundle bundle = intent.getExtras();
         Tache t = (Tache) bundle.getSerializable("tache");
+        user = (Utilisateur) bundle.getSerializable("user");
+
+        delete = (ImageView) findViewById(R.id.affiche_tache_supprimer);
+        if(!user.getRole().getAdministrative()){
+            delete.setVisibility(View.INVISIBLE);
+        }
 
         //Question de debugging, on affiche les valeurs si elles sont bien là. On s'évite ici de retrouver des NullPointers
         if(t != null) {
@@ -63,9 +76,24 @@ public class AfficheTacheActivity extends AppCompatActivity {
 
 
     public void deleteTache(View v){
-        Intent t = new Intent(getApplicationContext(),ListeTacheActivity.class);
-        startActivity(t);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("tache");
+        ref.child(tache.getDescription()).removeValue();
+        Toast.makeText(getApplicationContext(),  "Tâche supprimée avec succès.", Toast.LENGTH_LONG).show();
         finish();
 
+    }
+
+
+    public void terminerTache(View v){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("tache");
+        ref.child(tache.getDescription()).child("completed").setValue(true);
+        DatabaseReference ref2 = database.getReference("users");
+        user.setNbreDePoints(user.getNbreDePoints() + tache.getCompensation());
+        ref2.child(user.getUser()).child("nbreDePoints").setValue(user.getNbreDePoints());
+        Intent t = new Intent(getBaseContext(),ListeTacheAdapter.class);
+        Toast.makeText(getApplicationContext(),  "Tâche complétée", Toast.LENGTH_LONG).show();
+        finish();
     }
 }

@@ -63,7 +63,7 @@ public class AjouteTacheActivity extends AppCompatActivity {
         DatabaseReference lili = database.getReference("tache").child(didi);
         lili.setValue(task);
         Toast.makeText(getApplicationContext(), didi + " ajouté", Toast.LENGTH_LONG).show();
-
+        finish();
 
     }
 

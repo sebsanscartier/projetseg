@@ -19,9 +19,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/i/taskmanager/AfficheTacheActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/i/taskmanager/AfficheTacheActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/i/taskmanager/AjouteTacheActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/i/taskmanager/AjouteTacheActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/i/taskmanager/ListeTacheActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/i/taskmanager/ListeTacheActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/i/taskmanager/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/i/taskmanager/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_liste_tache_activity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_liste_tache_activity.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/i/taskmanager/ListeTacheAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/i/taskmanager/ListeTacheAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/affiche_tache_activity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/affiche_tache_activity.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,44 +47,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/MainActivity.java">
+      <file leaf-file-name="AfficheTacheActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/AfficheTacheActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="91" column="113" lean-forward="false" selection-start-line="91" selection-start-column="113" selection-end-line="91" selection-end-column="113" />
+            <state relative-caret-position="138">
+              <caret line="81" column="78" lean-forward="false" selection-start-line="81" selection-start-column="78" selection-end-line="81" selection-end-column="78" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListeTacheActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/ListeTacheActivity.java">
+      <file leaf-file-name="ListeTacheAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/ListeTacheAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="105" column="44" lean-forward="false" selection-start-line="105" selection-start-column="44" selection-end-line="105" selection-end-column="44" />
+            <state relative-caret-position="-259">
+              <caret line="65" column="47" lean-forward="false" selection-start-line="65" selection-start-column="47" selection-end-line="65" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tache.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/Tache.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="607">
-              <caret line="101" column="8" lean-forward="false" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="41" />
-              <folding>
-                <element signature="e#2336#2337#0" expanded="true" />
-                <element signature="e#2384#2385#0" expanded="true" />
-              </folding>
-            </state>
+      <file leaf-file-name="affiche_tache_activity.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/affiche_tache_activity.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AfficheProfileActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/AfficheProfileActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
-              <caret line="29" column="69" lean-forward="false" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
+            <state relative-caret-position="237">
+              <caret line="20" column="52" lean-forward="false" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -91,8 +83,28 @@
       <file leaf-file-name="AfficheUsersActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/AfficheUsersActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="77" column="38" lean-forward="false" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
+            <state relative-caret-position="282">
+              <caret line="62" column="35" lean-forward="false" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AfficheProfileActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/AfficheProfileActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="29" column="69" lean-forward="false" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AjouteTacheActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/AjouteTacheActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="65" column="17" lean-forward="false" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -1950,10 +1962,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/i/taskmanager/Role.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/i/taskmanager/AfficheUsersActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/i/taskmanager/Tache.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/i/taskmanager/AjouteTacheActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/i/taskmanager/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_liste_tache_activity.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/i/taskmanager/ListeTacheAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/i/taskmanager/ListeTacheActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/i/taskmanager/AjouteTacheActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/affiche_tache_activity.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/i/taskmanager/AfficheTacheActivity.java" />
       </list>
     </option>
   </component>
@@ -1978,6 +1993,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
@@ -2057,8 +2074,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane" />
     </panes>
   </component>
@@ -2148,8 +2163,7 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method>
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512084721760" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512105072985" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2196,8 +2210,7 @@
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
       </Profilers>
       <method>
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512084721760" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512105072985" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2358,8 +2371,7 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method>
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512084721762" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512105072988" />
       </method>
     </configuration>
     <list size="1">
@@ -2419,7 +2431,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294964" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294964" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11366907" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294964" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2430,9 +2442,9 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2452,6 +2464,49 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="91" column="113" lean-forward="false" selection-start-line="91" selection-start-column="113" selection-end-line="91" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/Tache.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1095">
+          <caret line="101" column="8" lean-forward="false" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="41" />
+          <folding>
+            <element signature="e#2336#2337#0" expanded="true" />
+            <element signature="e#2384#2385#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/AfficheProfileActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="29" column="69" lean-forward="false" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/AfficheUsersActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="77" column="38" lean-forward="false" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/ListeTacheActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1335">
+          <caret line="105" column="44" lean-forward="false" selection-start-line="105" selection-start-column="44" selection-end-line="105" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -2538,13 +2593,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/AjouteTacheActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="61" column="8" lean-forward="false" selection-start-line="61" selection-start-column="8" selection-end-line="62" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/AjoutUserActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -2583,14 +2631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/AfficheProfileActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="29" column="69" lean-forward="false" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
@@ -2601,7 +2641,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/Tache.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
+        <state relative-caret-position="370">
           <caret line="101" column="8" lean-forward="false" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="41" />
           <folding>
             <element signature="e#2336#2337#0" expanded="true" />
@@ -2610,18 +2650,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/AfficheProfileActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="29" column="69" lean-forward="false" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/AjouteTacheActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="65" column="17" lean-forward="false" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/AfficheUsersActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="77" column="38" lean-forward="false" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
+        <state relative-caret-position="282">
+          <caret line="62" column="35" lean-forward="false" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/ListeTacheAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-259">
+          <caret line="65" column="47" lean-forward="false" selection-start-line="65" selection-start-column="47" selection-end-line="65" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/ListeTacheActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="105" column="44" lean-forward="false" selection-start-line="105" selection-start-column="44" selection-end-line="105" selection-end-column="44" />
+        <state relative-caret-position="38">
+          <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/affiche_tache_activity.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="20" column="52" lean-forward="false" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/i/taskmanager/AfficheTacheActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="81" column="78" lean-forward="false" selection-start-line="81" selection-start-column="78" selection-end-line="81" selection-end-column="78" />
           <folding />
         </state>
       </provider>
