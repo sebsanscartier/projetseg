@@ -18,7 +18,8 @@
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
             android:src="@drawable/king"
-            android:onClick="afficheProfileActivity"/>
+            android:onClick="afficheProfileActivity"
+            android:id="@+id/liste_tache_image"/>
 
         <ImageView
             android:id="@+id/liste_tache_ajouterTache"

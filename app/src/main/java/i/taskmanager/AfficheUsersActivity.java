@@ -18,14 +18,18 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-/**
- * Created by newuser on 11/20/17.
+/*
+ * Auteur : Groupe de travail i++
+ * Fichier : AfficheUsersActivity.java
+ * Description : Activité qui permet d'afficher tous les utilisateurs inscrits au système. On prend ceux-ci à partir de la base de données
  */
 
 public class AfficheUsersActivity extends AppCompatActivity {
 
+
+    //Toutes les variables d'instance
     private ArrayList<Utilisateur> utilisateurs = new ArrayList<>();
-    RecyclerView v;
+    private RecyclerView v;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +38,6 @@ public class AfficheUsersActivity extends AppCompatActivity {
 
         //On obtient le RecyclerView que nous avons créé dans le fichier XML de layout.
         v = (RecyclerView) findViewById(R.id.affiche_users_recyclerView);
-
-
-
 
 
         //On fait en sorte d'ajouter une orientation et un layout au recycler view pour qu'il puisse se construire correctement
@@ -48,39 +49,37 @@ public class AfficheUsersActivity extends AppCompatActivity {
         DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(v.getContext(), manager.getOrientation());
         v.addItemDecoration(mDividerItemDecoration);
 
-        //On fait en sorte de mettre l'adapter au recycler view, afin de pouvoir afficher toutes les différentes tâches.
-
-
-
-
 
     }
 
+    //Méthode permettant d'obtenir tous les utilisateurs de la base de données.
     @Override
     protected void onStart() {
         super.onStart();
 
+        //Obtenir la base de données
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("users");
+
+        //Supprimer tout ce qui est dans la liste des utilisateurs pour la recommencer à nouveau.
         utilisateurs.clear();
         ref.addValueEventListener(new ValueEventListener() {
             @Override
+            //On affiche dans cette méthode tous les utilisateurs qui sont dans la base de donneés.
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapShot : dataSnapshot.getChildren()){
+                for (DataSnapshot snapShot : dataSnapshot.getChildren()) {
                     Utilisateur tmp = snapShot.getValue(Utilisateur.class);
-                    Log.d("SOURCE",tmp.getNom());
                     utilisateurs.add(tmp);
                 }
 
-
-
-                AfficheUsersAdapter adapter = new AfficheUsersAdapter(utilisateurs,getApplicationContext());
+                //On terminer par créer un nouvel adapteur, qui va afficher les différents utilisateurs entrés dans le tableau.
+                AfficheUsersAdapter adapter = new AfficheUsersAdapter(utilisateurs, getApplicationContext());
                 v.setAdapter(adapter);
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                //Cette méthode ne nous intéresse pas, mais est nécessaire au fonctionnement du valueEventListener.
             }
         });
 

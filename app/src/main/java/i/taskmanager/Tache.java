@@ -3,12 +3,15 @@ package i.taskmanager;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * Created by newuser on 11/20/17.
+/*
+ * Auteur : Groupe de travail i++
+ * Fichier : Tache.java
+ * Description : Classe permettant de créer une tache, puis d'obtenir les valeurs associées à celle-ci.
  */
 
-public class Tache implements Serializable{
+public class Tache implements Serializable {
 
+    //Variable d'instances
     private Double compensation;
     private String description;
     private Boolean isCompleted;
@@ -17,10 +20,11 @@ public class Tache implements Serializable{
     private String dateLimite;
     private String destinataire;
 
-    public Tache(){
+    public Tache() {
 
     }
-    public Tache(Double compensation, String description, Boolean isCompleted, String note, String dateDebut, String dateLimite, String destinaire){
+
+    public Tache(Double compensation, String description, Boolean isCompleted, String note, String dateDebut, String dateLimite, String destinaire) {
 
         this.compensation = compensation;
         this.description = description;
@@ -32,7 +36,7 @@ public class Tache implements Serializable{
 
     }
 
-    public Tache(Double compensation, String description, Boolean isCompleted, String dateDebut, String dateLimite, String destinataire){
+    public Tache(Double compensation, String description, Boolean isCompleted, String dateDebut, String dateLimite, String destinataire) {
 
         this.compensation = compensation;
         this.description = description;
@@ -52,13 +56,6 @@ public class Tache implements Serializable{
         return compensation;
     }
 
-    public String getDateDebut() {
-        return dateDebut;
-    }
-
-    public String getDateLimite() {
-        return dateLimite;
-    }
 
     public String getDescription() {
         return description;
@@ -69,36 +66,14 @@ public class Tache implements Serializable{
     }
 
 
-
-    public void setCompensation(Double compensation) {
-        this.compensation = compensation;
-    }
-
-    public void setCompleted(Boolean completed) {
-        isCompleted = completed;
-    }
-
-    public void setDateDebut(String dateDebut) {
-        this.dateDebut = dateDebut;
-    }
-
-    public void setDateLimite(String dateLimite) {
-        this.dateLimite = dateLimite;
-    }
-
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public void setNote(String note) {
-        this.note = note;
-    }
 
     public String getDestinataire() {
         return destinataire;
     }
 
-    public void setDestinataire(String destinataire) {
-        this.destinataire = destinataire;
-    }
+
 }

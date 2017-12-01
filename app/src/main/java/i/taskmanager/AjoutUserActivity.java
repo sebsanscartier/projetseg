@@ -18,17 +18,18 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-/**
- * Created by newuser on 11/20/17.
+/*
+ * Auteur : Groupe de travail i++
+ * Fichier : AjoutUserActivity.java
+ * Description : Activité permettant d'ajouter un nouvel utilisateur. Nous avons laissé celle-ci libre, car au début de l'application,
+ * Il n'y aura aucun utilisateur dans la base de données. C'est pourquoi, nous ne pouvions pas cacher celle-ci dans l'application de façon sécurisée.
  */
 
 public class AjoutUserActivity extends AppCompatActivity {
 
+    //Les Variables d'instance
     private Spinner role;
-    private EditText prenom;
-    private EditText nom;
-    private EditText user;
-    private EditText pass;
+    private EditText prenom,nom,user,pass;
     private ImageView image;
 
     //Simple méthode de création, qui permet d'afficher les informations relatives à l'utilisateur.
@@ -37,19 +38,18 @@ public class AjoutUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ajout_user_activity);
 
-        role = (Spinner)findViewById(R.id.ajout_user_role);
-        prenom = (EditText)findViewById(R.id.ajout_user_prenom);
-        nom = (EditText)findViewById(R.id.ajout_user_nom);
-        user = (EditText)findViewById(R.id.ajout_user_username);
-        pass = (EditText)findViewById(R.id.ajout_user_password);
-        image = (ImageView)findViewById(R.id.ajout_user_imageRole);
 
-
+        //Obtenir les composantes du layout, pour utilisation future.
+        role = (Spinner) findViewById(R.id.ajout_user_role);
+        prenom = (EditText) findViewById(R.id.ajout_user_prenom);
+        nom = (EditText) findViewById(R.id.ajout_user_nom);
+        user = (EditText) findViewById(R.id.ajout_user_username);
+        pass = (EditText) findViewById(R.id.ajout_user_password);
+        image = (ImageView) findViewById(R.id.ajout_user_imageRole);
 
 
         //Créer les roles et les mettre dans le spinner
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.array_roles, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.array_roles, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         role.setAdapter(adapter);
 
@@ -58,18 +58,18 @@ public class AjoutUserActivity extends AppCompatActivity {
         role.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                if(position == 0){
-                    image.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.king));
-                }else if(position == 1){
-                    image.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.monsieur));
-                }else if(position == 2){
-                    image.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.madame));
+                if (position == 0) {
+                    image.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.king));
+                } else if (position == 1) {
+                    image.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.monsieur));
+                } else if (position == 2) {
+                    image.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.madame));
                 }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-                //On s'en fou!
+                //On s'en fou! Obligatoire...
             }
 
         });
@@ -77,47 +77,61 @@ public class AjoutUserActivity extends AppCompatActivity {
 
     }
 
-    public void addUser(View v){
-        if (verifyInfo()){
+    //Méthode permettant l'ajout de l'utilisateur dans la base de données
+    public void addUser(View v) {
+        if (verifyInfo()) {
+
+            //Obtenir toutes les valeurs des composantes dans le layout.
             String prenomString = prenom.getText().toString().trim();
             String nomString = nom.getText().toString().trim();
             String userString = user.getText().toString().trim();
             int passInt = Integer.parseInt(pass.getText().toString().trim());
 
+            //Création d'un rôle initial qui nous permet d'être redéfini par la suite selon le choix.
             Role roleChoisi = Session.parent;
 
-            if(role.getSelectedItemPosition() == 0){
+
+            //Choix du rôle choisi dans le spinner.
+            if (role.getSelectedItemPosition() == 0) {
                 roleChoisi = Session.parent;
-            }else if(role.getSelectedItemPosition() == 1){
+            } else if (role.getSelectedItemPosition() == 1) {
                 roleChoisi = Session.garcon;
-            }else if(role.getSelectedItemPosition() == 2){
+            } else if (role.getSelectedItemPosition() == 2) {
                 roleChoisi = Session.fille;
             }
 
+            //Création d'un utilisateur pour le mettre dans la base de données.
             Utilisateur user = new Utilisateur(prenomString, nomString, 0, 0.0, roleChoisi, userString, passInt);
 
 
-
+            //Mettre l'utilisateur dans la base de données.
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference ref = database.getReference("users").child(userString);
             ref.setValue(user);
-            Toast.makeText(getApplicationContext(), userString+" ajouté", Toast.LENGTH_LONG).show();
+
+            //Afficher l'ajout réussi pour l'utilisateur en question.
+            Toast.makeText(getApplicationContext(), userString + " ajouté", Toast.LENGTH_LONG).show();
         } else {
+
+            //Afficher ceci si le mot de passe n'est pas numérique! Donc une erreur, sachant qu'on veut des chiffres.
             Toast.makeText(getApplicationContext(), "mot de passe invalide", Toast.LENGTH_LONG).show();
         }
     }
 
-    private boolean verifyInfo(){
-        try{
+
+    //Méthode permettant de savoir si le mot de passe est numérique.
+    private boolean verifyInfo() {
+        try {
             int passInt = Integer.parseInt(pass.getText().toString().trim());
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
         return true;
     }
 
-    public void mainActivity(View v){
+
+    //Méthode permettant de quitter l'activité, dans le cas où on a ajouté l'utilisateur.
+    public void mainActivity(View v) {
         this.finish();
     }
 }

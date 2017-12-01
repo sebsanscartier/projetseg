@@ -21,13 +21,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by newuser on 11/20/17.
+/*
+ * Auteur : Groupe de travail i++
+ * Fichier : AjouteTacheActivity.java
+ * Description : Activité permettant d'ajouter une tâche. Selon les intent, celle-ci ne s'affichera que si nous sommes un administrateur.
  */
 
 public class AjouteTacheActivity extends AppCompatActivity {
 
 
+    //Variables d'instance
     private EditText description, nombrePoints, dateLimite, note;
     private Spinner destinataire;
     private List<String> utilisateurs = new ArrayList<String>();
@@ -38,7 +41,7 @@ public class AjouteTacheActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ajoute_tache_activity);
 
-
+        //Obtenir toutes les composantes qu'on va utiliser dans la classe.
         description = (EditText) findViewById(R.id.ajoute_tache_titre);
         nombrePoints = (EditText) findViewById(R.id.ajoute_tache_nbPoints);
         dateLimite = (EditText) findViewById(R.id.ajoute_tache_date);
@@ -48,42 +51,56 @@ public class AjouteTacheActivity extends AppCompatActivity {
     }
 
 
+    //Méthode permettant l'ajout d'une tâche dans la base de données.
     public void addTache(View v) {
-        String didi = description.getText().toString().trim();
-        double didi2 = Double.parseDouble(nombrePoints.getText().toString().trim());
-        String didi3 = dateLimite.getText().toString().trim();
-        String didi4 = note.getText().toString().trim();
-        String didi5 = destinataire.getSelectedItem().toString();
+
+        //Obtenir toutes les valeurs des composantes pour créer la tâche.
+        String descriptionValeur = description.getText().toString().trim();
+        double compensationValeur = Double.parseDouble(nombrePoints.getText().toString().trim());
+        String dateLimiteValeur = dateLimite.getText().toString().trim();
+        String noteValeur = note.getText().toString().trim();
+        String destinataireValeur = destinataire.getSelectedItem().toString();
+
+        //Créer une nouvelle tâche avec les valeurs
+        Tache task = new Tache(compensationValeur, descriptionValeur, false, noteValeur, dateLimiteValeur, "", destinataireValeur);
 
 
-        Tache task = new Tache(didi2, didi, false, didi4, didi3, "",didi5);
-
-
+        //Créer la tâche dans la base de données.
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference lili = database.getReference("tache").child(didi);
-        lili.setValue(task);
-        Toast.makeText(getApplicationContext(), didi + " ajouté", Toast.LENGTH_LONG).show();
+        DatabaseReference ref = database.getReference("tache").child(descriptionValeur);
+        ref.setValue(task);
+
+        //Afficher la réussite à l'écran
+        Toast.makeText(getApplicationContext(), descriptionValeur + " ajouté", Toast.LENGTH_LONG).show();
+
+        //Terminer l'activité comme tout est correct.
         finish();
 
     }
 
 
-
+    //Méthode qui permet, dans le départ de l'application, de remplir le spinner avec tous les utilisateurs dans la base de données.
     @Override
     protected void onStart() {
         super.onStart();
 
+
+        //Obtenir les utilisateurs dans la base de données.
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("users");
+
+        //Recommencer le tableau avec des valeurs vides.
         utilisateurs.clear();
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                //Passer à travers tous les éléments pour les ajouter au tableau.
                 for (DataSnapshot snapShot : dataSnapshot.getChildren()) {
                     Utilisateur tmp = snapShot.getValue(Utilisateur.class);
                     utilisateurs.add(tmp.getPrenom() + " " + tmp.getNom());
                 }
 
+                //Créer l'adapteur, puis afficher le tout dans le spinner! Un simple adapteur avec du texte fait l'affaire pour un spinner!
                 adapteur = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, utilisateurs);
 
                 adapteur.setDropDownViewResource(android.R.layout.simple_spinner_item);
@@ -92,7 +109,7 @@ public class AjouteTacheActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                //Méthode obligatoire, mais elle nous sert à rien!
             }
         });
 
