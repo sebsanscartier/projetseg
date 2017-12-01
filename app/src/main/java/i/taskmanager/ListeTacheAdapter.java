@@ -20,9 +20,10 @@ public class ListeTacheAdapter extends RecyclerView.Adapter<ListeTacheAdapter.Vi
 
     public ArrayList<Tache> taches = new ArrayList<>();
     public Context context;
+    public Utilisateur user;
 
-    public ListeTacheAdapter(ArrayList<Tache> items,Context context) {
-
+    public ListeTacheAdapter(ArrayList<Tache> items,Context context, Utilisateur user) {
+        this.user = user;
         this.taches = items;
         this.context = context;
 
@@ -62,6 +63,7 @@ public class ListeTacheAdapter extends RecyclerView.Adapter<ListeTacheAdapter.Vi
             Intent w = new Intent(context,AfficheTacheActivity.class);
             Bundle bundle = new Bundle();
             bundle.putSerializable("tache", item);
+            bundle.putSerializable("user", user);
             w.putExtras(bundle);
             context.startActivity(w);
         });

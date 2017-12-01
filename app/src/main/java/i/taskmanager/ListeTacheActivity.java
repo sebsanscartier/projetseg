@@ -58,9 +58,6 @@ public class ListeTacheActivity extends AppCompatActivity {
         DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(v.getContext(), manager.getOrientation());
         v.addItemDecoration(mDividerItemDecoration);
 
-        //On fait en sorte de mettre l'adapter au recycler view, afin de pouvoir afficher toutes les différentes tâches.
-        ListeTacheAdapter adapter = new ListeTacheAdapter(taches,getApplicationContext());
-        v.setAdapter(adapter);
 
 
 
@@ -102,7 +99,7 @@ public class ListeTacheActivity extends AppCompatActivity {
                         Tache tmp = snapShot.getValue(Tache.class);
                         String nomPersonne = userPrincipal.getPrenom()+" "+userPrincipal.getNom();
 
-                        if(tmp.getDestinataire().equals(nomPersonne)){
+                        if(tmp.getDestinataire().equals(nomPersonne) && !tmp.getCompleted()){
                             taches.add(tmp);
                         }
 
@@ -110,7 +107,7 @@ public class ListeTacheActivity extends AppCompatActivity {
 
 
 
-                ListeTacheAdapter adapter = new ListeTacheAdapter(taches,getApplicationContext());
+                ListeTacheAdapter adapter = new ListeTacheAdapter(taches,getApplicationContext(), userPrincipal);
                 v.setAdapter(adapter);
             }
 
