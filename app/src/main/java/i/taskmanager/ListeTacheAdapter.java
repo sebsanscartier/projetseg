@@ -2,6 +2,7 @@ package i.taskmanager;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -57,6 +58,13 @@ public class ListeTacheAdapter extends RecyclerView.Adapter<ListeTacheAdapter.Vi
         //selon la tâche en question et ses informations.
         Tache item = taches.get(position);
         holder.description.setText(item.getDescription());
+
+
+        if(item.getCompleted().toString() == "true"){
+            holder.description.setTextColor(Color.parseColor("#bf0940"));
+        }else{
+            holder.description.setTextColor(Color.parseColor("#84d214"));
+        }
 
         if (item.getNote().length() > 0) {
             holder.note.setText(item.getNote());

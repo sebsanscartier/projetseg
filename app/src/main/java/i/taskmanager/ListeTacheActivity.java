@@ -122,8 +122,16 @@ public class ListeTacheActivity extends AppCompatActivity {
                     Tache tmp = snapShot.getValue(Tache.class);
                     String nomPersonne = userPrincipal.getPrenom() + " " + userPrincipal.getNom();
 
+                        if(tmp != null){
+                            if(tmp.getDestinataire().equals(nomPersonne)){
+                                taches.add(tmp);
+                            }
 
-                        taches.add(tmp);
+                            if(userPrincipal.getRole().getAdministrative() && !taches.contains(tmp)){
+                                taches.add(tmp);
+                            }
+                        }
+
 
 
                 }

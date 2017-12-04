@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,7 +26,8 @@ public class AfficheTacheActivity extends AppCompatActivity {
 
     private Tache tache;
     private Utilisateur user;
-    private ImageView delete;
+    private ImageView delete,edit,completer;
+    private EditText description,point,note;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +35,13 @@ public class AfficheTacheActivity extends AppCompatActivity {
         setContentView(R.layout.affiche_tache_activity);
 
         //Définir les objets qui sont utilisés dans la classe.
-        TextView description = (TextView) findViewById(R.id.affiche_tache_description);
-        TextView point = (TextView) findViewById(R.id.affiche_tache_nbPoints);
-        TextView note = (TextView) findViewById(R.id.affiche_tache_note);
+        description = (EditText) findViewById(R.id.affiche_tache_description);
+        point = (EditText) findViewById(R.id.affiche_tache_nbPoints);
+        note = (EditText) findViewById(R.id.affiche_tache_note);
+        TextView destinataire = (TextView) findViewById(R.id.affiche_tache_destinaire);
         delete = (ImageView) findViewById(R.id.affiche_tache_supprimer);
+        edit = (ImageView) findViewById(R.id.affiche_tache_modifier);
+        completer = (ImageView) findViewById(R.id.affiche_tache_completer);
 
         //Obtenir la tâche qu'on a envoyé à travers le Intent. (Ici, il s'agit d'un serializable), ainsi que l'utilisateur
         Intent intent = this.getIntent();
@@ -49,6 +54,20 @@ public class AfficheTacheActivity extends AppCompatActivity {
             delete.setVisibility(View.INVISIBLE);
         }
 
+        //On fait en sorte de ne pas pouvoir modifier si ce n'est pas un administrateur
+        if (!user.getRole().getAdministrative()) {
+            edit.setVisibility(View.INVISIBLE);
+            note.setEnabled(false);
+            point.setEnabled(false);
+            description.setEnabled(false);
+        }
+
+        if(t.getCompleted()){
+            completer.setVisibility(View.INVISIBLE);
+        }
+
+
+
         //Question de debugging, on affiche les valeurs si elles sont bien là. On s'évite ici de retrouver des NullPointers
         if (t != null) {
 
@@ -57,6 +76,7 @@ public class AfficheTacheActivity extends AppCompatActivity {
             //Afficher dans l'interface graphique toutes les valeurs obtenues à travers la tâche passée dans le Intent
             description.setText(tache.getDescription());
             point.setText(tache.getCompensation() + "");
+            destinataire.setText(tache.getDestinataire());
 
             if (t.getNote().length() != 0) {
                 note.setText(tache.getNote());
@@ -94,6 +114,7 @@ public class AfficheTacheActivity extends AppCompatActivity {
     //Méthode permettant de terminer une tâche, soit mettre sa variable complétée à true.
     public void terminerTache(View v) {
 
+
         //Obtenir l'instance de la base de donnée, puis changer sa valeur de complétée à true.
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("tache");
@@ -109,5 +130,18 @@ public class AfficheTacheActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Tâche complétée", Toast.LENGTH_LONG).show();
         finish();
 
+    }
+
+
+    public void modifierTache(View v){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("tache");
+        ref.child(tache.getDescription()).child("compensation").setValue(Double.parseDouble(point.getText().toString()));
+        ref.child(tache.getDescription()).child("note").setValue(note.getText().toString());
+
+
+        //Tout est ajouté dans le meilleur des cas, on peut donc terminer l'activité et afficher un message qui indique que c'est réussi.
+        Toast.makeText(getApplicationContext(), "Tâche modifiée", Toast.LENGTH_LONG).show();
+        finish();
     }
 }
