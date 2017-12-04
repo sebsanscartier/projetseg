@@ -14,7 +14,7 @@ public class Tache implements Serializable {
     //Variable d'instances
     private Double compensation;
     private String description;
-    private Boolean isCompleted;
+    private Boolean completed;
     private String note;
     private String dateDebut;
     private String dateLimite;
@@ -24,11 +24,11 @@ public class Tache implements Serializable {
 
     }
 
-    public Tache(Double compensation, String description, Boolean isCompleted, String note, String dateDebut, String dateLimite, String destinaire) {
+    public Tache(Double compensation, String description, Boolean completed, String note, String dateDebut, String dateLimite, String destinaire) {
 
         this.compensation = compensation;
         this.description = description;
-        this.isCompleted = isCompleted;
+        this.completed = completed;
         this.note = note;
         this.dateDebut = dateDebut;
         this.dateLimite = dateLimite;
@@ -40,7 +40,7 @@ public class Tache implements Serializable {
 
         this.compensation = compensation;
         this.description = description;
-        this.isCompleted = isCompleted;
+        this.completed = completed;
         this.note = "";
         this.dateDebut = dateDebut;
         this.dateLimite = dateLimite;
@@ -49,7 +49,7 @@ public class Tache implements Serializable {
     }
 
     public Boolean getCompleted() {
-        return isCompleted;
+        return completed;
     }
 
     public Double getCompensation() {
