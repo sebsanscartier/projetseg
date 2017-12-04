@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-/**
- * Created by newuser on 11/22/17.
+/*
+ * Auteur : Groupe de travail i++
+ * Fichier : EasterEgg.java
+ * Description : Surprise! (Nous aimons beaucoup harry potter et notre TA Cedric)
  */
 
 public class EasterEgg extends AppCompatActivity {
@@ -20,8 +22,6 @@ public class EasterEgg extends AppCompatActivity {
         Toast.makeText(this, "MON FILS! C'EST MON FILS!!", Toast.LENGTH_LONG).show();
 
     }
-
-
 
 
 }

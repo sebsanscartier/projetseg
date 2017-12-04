@@ -5,25 +5,29 @@ import android.media.Image;
 
 import java.io.Serializable;
 
-/**
- * Created by newuser on 11/20/17.
+
+/*
+ * Auteur : Groupe de travail i++
+ * Fichier : Role.java
+ * Description : Classe permettant d'obtenir un rôle, associé à un utilisateur.
  */
 
-public class Role implements Serializable{
+public class Role implements Serializable {
 
 
-
+    //Variables d'instance
     private Boolean isAdministrative;
     private String description;
 
 
-    public Role(){
+    public Role() {
 
     }
 
-    public Role(Boolean isAdministrative, String description){
+    //Constructeur par défaut.
+    public Role(Boolean isAdministrative, String description) {
         this.isAdministrative = isAdministrative;
-        this.description = description;  
+        this.description = description;
     }
 
     public String getDescription() {

@@ -2,24 +2,26 @@ package i.taskmanager;
 
 import java.io.Serializable;
 
-/**
- * Created by newuser on 11/20/17.
+/*
+ * Auteur : Groupe de travail i++
+ * Fichier : Utilisateur.java
+ * Description : Classe permettant de créer et d'obtenir l'instance d'un utilisateur.
  */
+public class Utilisateur implements Serializable {
 
-public class Utilisateur implements Serializable{
-
-    private String prenom,nom;
+    //Variables d'instance
+    private String prenom, nom;
     private int nbreTachesAccomplies;
     private Double nbreDePoints;
     private Role role;
     private String user;
     private int pass;
 
-    public Utilisateur(){
+    public Utilisateur() {
 
     }
 
-    public Utilisateur(String prenom, String nom, int nbreTachesAccomplies, Double nbreDePoints, Role role, String user, int pass){
+    public Utilisateur(String prenom, String nom, int nbreTachesAccomplies, Double nbreDePoints, Role role, String user, int pass) {
         this.prenom = prenom;
         this.nom = nom;
         this.role = role;
@@ -49,9 +51,13 @@ public class Utilisateur implements Serializable{
         return role;
     }
 
-    public String getUser() {return user;}
+    public String getUser() {
+        return user;
+    }
 
-    public int getPass() {return pass;}
+    public int getPass() {
+        return pass;
+    }
 
     public void setNbreDePoints(Double nbreDePoints) {
         this.nbreDePoints = nbreDePoints;
