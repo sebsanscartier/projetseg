@@ -122,9 +122,9 @@ public class ListeTacheActivity extends AppCompatActivity {
                     Tache tmp = snapShot.getValue(Tache.class);
                     String nomPersonne = userPrincipal.getPrenom() + " " + userPrincipal.getNom();
 
-                    if (tmp.getDestinataire().equals(nomPersonne) && !tmp.getCompleted()) {
+
                         taches.add(tmp);
-                    }
+
 
                 }
 
